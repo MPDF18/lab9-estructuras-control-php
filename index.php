@@ -60,6 +60,33 @@ else {
 
 // ---------- EJERCICIO 2 · Notas (elseif, ternario, &&) ----------
 // TODO 2
+$promedio = ($nota1 + $nota2 + $nota3) / 3;
+if ($promedio >= 90) {
+    $letra = "A";
+} 
+elseif ($promedio >= 80) {
+    $letra = "B";
+} 
+elseif ($promedio >= 70) {
+    $letra = "C";
+} 
+elseif ($promedio >= 60) {
+    $letra = "D";
+} 
+else {
+    $letra = "F";
+}
+
+if ($promedio >= 70) {
+    $estado = "Aprobado";
+} 
+else {
+    $estado = "Reprobado";
+}
+
+$CuadroDeHonor = ($promedio >= 90 && $nota1 >= 80 && $nota2 >= 80 && $nota3 >= 80) ? "Sí" : "No";
+
+
 
 // ---------- EJERCICIO 3 · Día de la semana (switch) ----------
 // TODO 3
@@ -120,7 +147,9 @@ else {
     <section id="ej2">
       <h2>Ejercicio 2 · Notas</h2>
       <!-- TODO CSS-4: agrega la clase "ok" o "error" con PHP según el estado -->
-      <p id="ej2-res" class="resultado"><!-- TODO 2 --></p>
+      <p id="ej2-res" class="resultado"><!-- TODO 2 -->
+        Letra: <?= $letra ?> | Estado: <?= $estado ?> | Cuadro de honor: <?= $CuadroDeHonor ?>
+      </p>
     </section>
 
     <section id="ej3">
