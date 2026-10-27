@@ -134,6 +134,27 @@ switch ($dia) {
 
 // ---------- EJERCICIO 4 · Mes y estación (match) ----------
 // TODO 4
+match ($nombreMes = $mes) {
+    1 => $nombreMes = "Enero",
+    2 => $nombreMes = "Febrero",
+    3 => $nombreMes = "Marzo",
+    4 => $nombreMes = "Abril",
+    5 => $nombreMes = "Mayo",
+    6 => $nombreMes = "Junio",
+    7 => $nombreMes = "Julio",
+    8 => $nombreMes = "Agosto",
+    9 => $nombreMes = "Septiembre",
+    10 => $nombreMes = "Octubre",
+    11 => $nombreMes = "Noviembre",
+    12 => $nombreMes = "Diciembre",
+    default => $nombreMes = "Mes inválido"
+};
+
+match ($epocaPanama = $mes) {
+    12, 1, 2, 3, 4 => $epocaPanama = "Estación seca",
+    5, 6, 7, 8, 9, 10, 11 => $epocaPanama = "Estación lluviosa",
+    default => $epocaPanama = "Mes inválido"
+};
 
 // ---------- EJERCICIO 5 · Caja de la tienda (reto integrador) ----------
 // TODO 5
@@ -202,7 +223,9 @@ switch ($dia) {
 
     <section id="ej4">
       <h2>Ejercicio 4 · Mes y estación</h2>
-      <p id="ej4-res"><!-- TODO 4 --></p>
+      <p id="ej4-res"><!-- TODO 4 -->
+        Mes: <?= $nombreMes ?> | Estación: <?= $epocaPanama ?>
+      </p>
     </section>
 
     <section id="ej5">
