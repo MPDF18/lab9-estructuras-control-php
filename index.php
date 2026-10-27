@@ -158,6 +158,32 @@ match ($epocaPanama = $mes) {
 
 // ---------- EJERCICIO 5 · Caja de la tienda (reto integrador) ----------
 // TODO 5
+const ITBMS = 0.07;
+
+if ($monto >= 150) {
+    $pct = 15;
+} elseif ($monto >= 100) {
+    $pct = 10;
+} elseif ($monto >= 50) {
+    $pct = 5;
+} else {
+    $pct = 0;
+}
+
+if ($esMiembro) {
+    $pct += 5;
+}
+
+$base = $monto - ($monto * $pct / 100);
+
+$recargoNocturno = false;
+if ($hora >= 22 || $hora < 6) {
+    $base = $base * 1.03;
+    $recargoNocturno = true;
+}
+
+$total = $base * (1 + ITBMS);
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -230,10 +256,18 @@ match ($epocaPanama = $mes) {
 
     <section id="ej5">
       <h2>Ejercicio 5 · Caja de la tienda</h2>
-      <p id="ej5-monto"><!-- TODO 5 --></p>
-      <p id="ej5-descuento"><!-- TODO 5 --></p>
-      <p id="ej5-recargo"><!-- TODO 5 --></p>
-      <p id="ej5-total"><!-- TODO 5 --></p>
+      <p id="ej5-monto"><!-- TODO 5 -->
+        Monto de compra: <?= $monto ?>
+      </p>
+      <p id="ej5-descuento"><!-- TODO 5 -->
+        Descuento aplicado: <?= $pct ?>%
+      </p>
+      <p id="ej5-recargo"><!-- TODO 5 -->
+        Recargo nocturno: <?= $recargoNocturno ? 'Sí' : 'No' ?>
+      </p>
+      <p id="ej5-total"><!-- TODO 5 -->
+        Total a pagar: $<?= $base ?>
+      </p>
     </section>
 
   </main>
