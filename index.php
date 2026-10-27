@@ -194,14 +194,28 @@ $total = $base * (1 + ITBMS);
    <meta name="lab9-huella" content="<?php echo $huella; ?>">
   <title>Lab 9 · Estructuras de control</title>
   <!-- TODO CSS-1: enlaza css/estilos.css (CSS externo) -->
+   <link rel="stylesheet" href="css/estilos.css">
   <!-- TODO CSS-2: agrega un <style> interno con al menos 2 reglas -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    header {
+      background-color: #f0f0f0;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  </style>
+
 </head>
 <body>
   <header>
     <!-- TODO CSS-3: agrega un atributo style (CSS en línea) a este h1 -->
+    <h1 style="color: #1a4d8f; border-bottom: 2px solid #1a4d8f;">
     <h1>Laboratorio #9 · Estructuras de control</h1>
     <p id="autor"><!-- TODO 0.4: "Autor: Nombre Apellido" -->
-      "Autor: <?php echo NOMBRE . " " . APELLIDO; ?>"
+      Autor: <?php echo NOMBRE . " " . APELLIDO; ?>
     </p>
   </header>
 
@@ -235,7 +249,7 @@ $total = $base * (1 + ITBMS);
     <section id="ej2">
       <h2>Ejercicio 2 · Notas</h2>
       <!-- TODO CSS-4: agrega la clase "ok" o "error" con PHP según el estado -->
-      <p id="ej2-res" class="resultado"><!-- TODO 2 -->
+       <p id="ej2-res" class="resultado <?= $aprobado ? 'ok' : 'error' ?>">
         Letra: <?= $letra ?> | Estado: <?= $estado ?> | Cuadro de honor: <?= $CuadroDeHonor ?>
       </p>
     </section>
@@ -266,14 +280,14 @@ $total = $base * (1 + ITBMS);
         Recargo nocturno: <?= $recargoNocturno ? 'Sí' : 'No' ?>
       </p>
       <p id="ej5-total"><!-- TODO 5 -->
-        Total a pagar: $<?= $base ?>
+        Total a pagar: $<?= $total ?>
       </p>
     </section>
 
   </main>
 
   <footer id="firma"><!-- TODO 0.7: "Lab 9 · Nombre Apellido · Semilla N" -->
-    "Lab 9 · <?php echo NOMBRE . " " . APELLIDO; ?> · Semilla <?php echo SEMILLA; ?>"
+    Lab 9 · <?php echo NOMBRE . " " . APELLIDO; ?> · Semilla <?php echo SEMILLA; ?>
   </footer>
 </body>
 </html>
