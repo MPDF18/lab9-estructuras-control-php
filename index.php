@@ -8,8 +8,24 @@
 // ---------- PARTE 0 · TUS DATOS ----------
 // TODO 0.1: define las constantes SEMILLA (últimos 3 dígitos de tu cédula, como número),
 //           NOMBRE y APELLIDO.
+const SEMILLA = 301;
+const NOMBRE = "Moisés";
+const APELLIDO = "Pérez";
 // TODO 0.2: crea $nombreCompleto, $edad, $dia, $mes, $nota1, $nota2, $nota3, $monto,
 //           $esMiembro, $hora, $huella, $descuento y $vacio (fórmulas en el documento).
+$nombreCompleto = NOMBRE . " " . APELLIDO;
+$edad       = 8 + (SEMILLA % 70);
+$dia        = (SEMILLA % 7) + 1;
+$mes        = (SEMILLA % 12) + 1;
+$nota1      = 40 + (SEMILLA % 61);
+$nota2      = 40 + ((SEMILLA * 3) % 61);
+$nota3      = 40 + ((SEMILLA * 7) % 61);
+$monto      = 20 + (SEMILLA % 181);
+$esMiembro  = (SEMILLA % 2) == 0;
+$hora       = SEMILLA % 24;
+$huella     = (SEMILLA * 13 + 91) % 1000;
+$descuento  = SEMILLA * 0.001;
+$vacio      = null;
 
 // ---------- EJERCICIO 1 · Boleto de cine (if / elseif / else) ----------
 // TODO 1
@@ -32,6 +48,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- TODO 0.3: <meta name="lab9-huella" content="..."> con el valor de $huella -->
+   <meta name="lab9-huella" content="<?php echo $huella; ?>">
   <title>Lab 9 · Estructuras de control</title>
   <!-- TODO CSS-1: enlaza css/estilos.css (CSS externo) -->
   <!-- TODO CSS-2: agrega un <style> interno con al menos 2 reglas -->
@@ -40,11 +57,13 @@
   <header>
     <!-- TODO CSS-3: agrega un atributo style (CSS en línea) a este h1 -->
     <h1>Laboratorio #9 · Estructuras de control</h1>
-    <p id="autor"><!-- TODO 0.4: "Autor: Nombre Apellido" --></p>
+    <p id="autor"><!-- TODO 0.4: "Autor: Nombre Apellido" -->
+      "Autor: <?php echo NOMBRE . " " . APELLIDO; ?>"
+    </p>
   </header>
 
   <!-- TODO 0.5: el id de <main> es "lab9-" + tu apellido en minúsculas, sin tildes (ver documento) -->
-  <main id="">
+  <main id="lab9-perez">
 
     <section id="ej0">
       <h2>Ejercicio 0 · Tipos de datos</h2>
@@ -54,6 +73,11 @@
         </thead>
         <tbody>
           <!-- TODO 0.6: 5 filas <tr> con el nombre de la variable y su gettype() -->
+          <tr><td>$nombreCompleto</td><td><?= gettype($nombreCompleto) ?></td></tr>
+          <tr><td>$edad</td><td><?= gettype($edad) ?></td></tr>
+          <tr><td>$esMiembro</td><td><?= gettype($esMiembro) ?></td></tr>
+          <tr><td>$descuento</td><td><?= gettype($descuento) ?></td></tr>
+          <tr><td>$vacio</td><td><?= gettype($vacio) ?></td></tr>
         </tbody>
       </table>
     </section>
@@ -89,6 +113,8 @@
 
   </main>
 
-  <footer id="firma"><!-- TODO 0.7: "Lab 9 · Nombre Apellido · Semilla N" --></footer>
+  <footer id="firma"><!-- TODO 0.7: "Lab 9 · Nombre Apellido · Semilla N" -->
+    "Lab 9 · <?php echo NOMBRE . " " . APELLIDO; ?> · Semilla <?php echo SEMILLA; ?>"
+  </footer>
 </body>
 </html>
